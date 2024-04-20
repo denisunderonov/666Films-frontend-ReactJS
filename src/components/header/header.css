@@ -1,0 +1,42 @@
+.main-header__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.main-header__logotype {
+    width: 64px;
+}
+
+.main-header__login-button {
+    text-transform: uppercase;
+    height: fit-content;
+}
+
+ /* форма регистрации */
+
+.close-register-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#registration-modal {
+    padding: 40px;
+}
+
+#registration-form{
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#registration-form label{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
