@@ -1,0 +1,61 @@
+.registration {
+    height: 100vh;
+    background-color: var(--background);
+    overflow: scroll;
+}
+
+.registration-container {
+    max-width: 1440px;
+    position: relative;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    padding-bottom: 15px;
+}
+
+#registration-form {
+    position: absolute;
+    background-color: #fff;
+    padding: 30px;
+    padding-bottom: 50px;
+    border-radius: 20px;
+    height: fit-content;
+    margin-top: 125px;  
+    max-width: 500px;
+}
+
+#registration-form input {
+    margin: 0 auto;
+    width: 100%;
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#registration-form input::placeholder {
+    font-family: 'RobotoMedium';
+    text-align: center;
+}
+
+.registration-form__register-button {
+    padding: 10px;
+    width: 100%;
+    font-family: 'RobotoMedium';
+    text-transform:capitalize;
+}
+
+.registration-form__account-text {
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 40px;
+    font-weight: normal;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-family: 'MainFont';
+}
+
+

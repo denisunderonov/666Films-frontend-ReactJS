@@ -1,88 +1,40 @@
-import React from "react";
-import logo from "./img/logo.png";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./header.css";
+import "../../fonts/fonts.css";
+import Home from "../Home/home";
+import RegisterPage from "../register/register";
 
 export default function Header() {
-  const [regWindow, setRegWindow] = React.useState(false);
-
-  function utilsModal() {
-    if (regWindow === false) {
-      document.getElementById("registration-modal").showModal();
-      setRegWindow(true);
-    } else {
-      document.getElementById("registration-modal").close();
-      setRegWindow(false);
-    }
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-
-    fetch("../../database/registration.php", {
-      method: "POST",
-      body: formData
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.text();
-      })
-      .then((data) => {
-        console.log(data);
-        // Обработка ответа, если необходимо
-      })
-      .catch((error) => {
-        console.error("There was an error with fetch operation:", error);
-      });
-  }
+  const [isAuth, setAuth] = useState(false);
 
   return (
-    <header className="main-header">
-      <div className="main-header__container">
-        <img
-          className="main-header__logotype"
-          src={logo}
-          alt="DailyDevil logotype"
-        />
-        <button
-          className="main-header__login-button btn btn-secondary"
-          onClick={utilsModal}
-        >
-          войти
-        </button>
+      <header className="main-header">
+        <div className="main-header__container">
+          <Link to="/" className="main-header__logotype-href">
+            <p className="main-header__logo">DailyDevil</p>
+          </Link>
+          {isAuth ? <RegHeader /> : <NotRegHeader />}
+        </div>
+      </header>
+  );
+}
 
-        <dialog aria-labelledby="registration-form" id="registration-modal">
-          <button
-            type="button"
-            className="btn-close close-register-modal"
-            aria-label="Close"
-            onClick={utilsModal}
-          ></button>
-          <form onSubmit={handleSubmit} id="registration-form">
-            <label>
-              <span>Логин</span>
-              <input type="text" name="login" placeholder="Введите логин" />
-            </label>
-            <label>
-              <span>Почта</span>
-              <input type="email" name="email" placeholder="Введите почту" />
-            </label>
-            <label>
-              <span>Пароль</span>
-              <input
-                type="password"
-                name="password"
-                placeholder="Введите пароль"
-              />
-            </label>
-            <button className="registration-form__reigster-button btn btn-primary">
-              Зарегистрироваться
-            </button>
-          </form>
-        </dialog>
-      </div>
-    </header>
+function RegHeader() {
+  return (
+    <div className="main-header__auth-container">
+      <button className="main-header__log-button btn btn-info">
+        избранное
+      </button>
+      <img src="#" alt="Моё фото" className="main-header__acc-image" />
+    </div>
+  );
+}
+
+function NotRegHeader() {
+  return (
+    <Link to="/register" className="main-header__register-button btn btn-primary">
+      регистрация
+    </Link>
   );
 }

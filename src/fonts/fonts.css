@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'LogoFont';
+    src: url('./RabbidHighwaySignExtendedItalic.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+@font-face {
+    font-family: 'MainFont';
+    src: url('./YanoneKaffeesatz-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+@font-face {
+    font-family: 'RobotoIt100';
+    src: url('./Roboto-ThinItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+@font-face {
+    font-family: 'RobotoMedium';
+    src: url('./Roboto-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'RobotoLightIt';
+    src: url('./Roboto-LightItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
