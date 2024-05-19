@@ -1,9 +1,10 @@
 import Header from "../header/header";
 import "./register.css";
+import { BrowserRouter as Navigate } from "react-router-dom";
 
 const url = "http://localhost:4445/auth/register";
 
-export default function RegisterPage() {
+export default function RegisterPage({ setAuth, isAuth }) {
   async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -27,6 +28,13 @@ export default function RegisterPage() {
       }
 
       const data = await response.json();
+      if (data.status === true) {
+        setAuth(true);
+        localStorage.setItem("isAuth", "true");
+        Navigate("/");
+      } else {
+        console.Error("Неизвестная ошибка");
+      }
       console.log("Успешная регистрация:", data);
     } catch (error) {
       console.error("Ошибка при отправке данных:", error);
@@ -35,7 +43,6 @@ export default function RegisterPage() {
 
   return (
     <>
-      <Header />
       <div className="registration">
         <div className="registration-container">
           <form id="registration-form" onSubmit={(e) => handleSubmit(e)}>
