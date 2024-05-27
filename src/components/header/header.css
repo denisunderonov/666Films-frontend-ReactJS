@@ -6,6 +6,11 @@ header {
     z-index: 99;
 }
 
+.main-header__buttons-container {
+    display: flex;
+    gap: 10px;
+}
+
 .main-header__container {
     max-width: 1440px;
     margin: 0 auto;

@@ -1,0 +1,49 @@
+.leftbar {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 150px;
+    background-color: var(--header-color);
+}
+
+.leftbar-container {
+    width: 100%;
+    height: 100%;
+}
+
+.leftbar__list {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+
+.leftbar__list--item {
+    width: 100%;
+}
+
+.leftbar__list--item a {
+    padding: 10px 0 10px 0  ;
+    text-align: center;
+    display: block;
+    width: 100%;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'RobotoMedium';
+    text-transform: uppercase;
+}
+
+.leftbar__list--item a:hover {
+    background-color: var(--background);
+    color: var(--header-color)
+}
+
+.leftbar__list--item a:active {
+    background-color: var(--background);
+    color: var(--header-color)
+}

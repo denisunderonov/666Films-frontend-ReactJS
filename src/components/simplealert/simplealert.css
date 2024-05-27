@@ -1,0 +1,15 @@
+.alert {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .fade-in {
+    opacity: 1;
+  }
+  
+  .fade-out {
+    opacity: 0;
+  }

@@ -9,9 +9,9 @@ export default function Header({ isAuth }) {
     <header className="main-header">
       <div className="main-header__container">
         <Link to="/" className="main-header__logotype-href">
-          <p className="main-header__logo">DailyDevil</p>
+          <p className="main-header__logo">DevilEyes</p>
         </Link>
-        {isAuth ? <RegHeader /> : <NotRegHeader />}
+        {localStorage.getItem("token") ? <RegHeader /> : <NotRegHeader />}
       </div>
     </header>
   );
@@ -36,11 +36,21 @@ function RegHeader() {
 
 function NotRegHeader() {
   return (
-    <Link
-      to="/register"
-      className="main-header__register-button btn btn-primary"
-    >
-      регистрация
-    </Link>
+    <>
+      <div className="main-header__buttons-container">
+        <Link
+          to="/login"
+          className="main-header__log-button btn btn-primary"
+        >
+          войти
+        </Link>
+        <Link
+          to="/register"
+          className="main-header__register-button btn btn-primary"
+        >
+          регистрация
+        </Link>
+      </div>
+    </>
   );
 }

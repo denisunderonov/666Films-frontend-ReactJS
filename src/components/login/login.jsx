@@ -1,11 +1,16 @@
-import "./register.css";
+import { useState, useEffect } from "react";
+import "./login.css";
 import { useNavigate } from "react-router-dom";
+import SimpleAlert from "../simplealert/simplealert";
 
+const url = "http://localhost:4444/auth/login";
 
-const url = "http://localhost:4444/auth/register";
+export default function Login({ setAuth }) {
+  const [message, setMessage] = useState(null);
+  const [key, setKey] = useState(0); // Временное состояние для обновления компонента
 
-export default function RegisterPage({ setAuth, isAuth }) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
   async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -13,8 +18,7 @@ export default function RegisterPage({ setAuth, isAuth }) {
     formData.forEach((value, key) => {
       formObject[key] = value;
     });
-    console.log(formObject);
-    
+
     try {
       const response = await fetch(url, {
         method: "POST",
@@ -23,23 +27,18 @@ export default function RegisterPage({ setAuth, isAuth }) {
           "Content-Type": "application/json; charset=UTF-8",
         },
       });
-      
-      if (!response.ok) {
-        throw new Error(`Ошибка сети: ${response.message}`);
-      }
-      
+
       const data = await response.json();
-      console.log(data);
       if (data.status === true) {
+        console.log(data);
         setAuth(true);
-        localStorage.setItem("token", data.token);
         localStorage.setItem("isAuth", "true");
-        localStorage.setItem("isFirstReg", "true");
+        localStorage.setItem("token", data.token);
         navigate("/");
       } else {
-        console.Error("Неизвестная ошибка");
+        setMessage(data.message);
+        setKey((prevKey) => prevKey + 1); 
       }
-      console.log("Успешная регистрация:", data);
     } catch (error) {
       console.error("Ошибка при отправке данных:", error);
     }
@@ -47,12 +46,11 @@ export default function RegisterPage({ setAuth, isAuth }) {
 
   return (
     <>
-      <div className="registration">
-        <div className="registration-container">
-          <form id="registration-form" onSubmit={(e) => handleSubmit(e)}>
-            <p className="registration-form__account-text">регистрация</p>
+      <div className="login">
+        <div className="login-container">
+          <form id="login-form" onSubmit={(e) => handleSubmit(e)}>
+            <p className="login-form__account-text">авторизация</p>
             <input type="text" name="login" placeholder="Введите логин" />
-            <input type="email" name="email" placeholder="Введите почту" />
             <input
               type="password"
               name="password"
@@ -60,13 +58,14 @@ export default function RegisterPage({ setAuth, isAuth }) {
             />
             <button
               type="submit"
-              className="registration-form__register-button btn btn-primary"
+              className="login-form__login-button btn btn-primary"
             >
-              Зарегистрироваться
+              войти
             </button>
           </form>
         </div>
       </div>
+      {message ? <SimpleAlert key={key} text={message} alertStatus={`error`} /> : null }
     </>
   );
 }
