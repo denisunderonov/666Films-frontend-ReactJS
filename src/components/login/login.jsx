@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./login.css";
 import { useNavigate } from "react-router-dom";
 import SimpleAlert from "../simplealert/simplealert";
 
 const url = "http://localhost:4444/auth/login";
 
-export default function Login({ setAuth }) {
+export default function Login({ setAuth, setUserData }) {
   const [message, setMessage] = useState(null);
-  const [key, setKey] = useState(0); // Временное состояние для обновления компонента
+  const [key, setKey] = useState(0); 
 
   const navigate = useNavigate();
 
@@ -34,7 +34,9 @@ export default function Login({ setAuth }) {
         setAuth(true);
         localStorage.setItem("isAuth", "true");
         localStorage.setItem("token", data.token);
-        navigate("/");
+        localStorage.setItem("userData", JSON.stringify(data));
+        setUserData(data);
+        navigate("/"); // Перенаправляем пользователя на страницу профиля после логина
       } else {
         setMessage(data.message);
         setKey((prevKey) => prevKey + 1); 
@@ -48,24 +50,17 @@ export default function Login({ setAuth }) {
     <>
       <div className="login">
         <div className="login-container">
-          <form id="login-form" onSubmit={(e) => handleSubmit(e)}>
+          <form id="login-form" onSubmit={handleSubmit}>
             <p className="login-form__account-text">авторизация</p>
-            <input type="text" name="login" placeholder="Введите логин" />
-            <input
-              type="password"
-              name="password"
-              placeholder="Введите пароль"
-            />
-            <button
-              type="submit"
-              className="login-form__login-button btn btn-primary"
-            >
+            <input type="text" name="login" placeholder="Введите логин" required />
+            <input type="password" name="password" placeholder="Введите пароль" required />
+            <button type="submit" className="login-form__login-button btn btn-primary">
               войти
             </button>
           </form>
         </div>
       </div>
-      {message ? <SimpleAlert key={key} text={message} alertStatus={`error`} /> : null }
+      {message ? <SimpleAlert key={key} text={message} alertStatus="error" /> : null}
     </>
   );
 }
