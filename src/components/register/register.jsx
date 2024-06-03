@@ -35,7 +35,7 @@ export default function RegisterPage({ setAuth, setUserData }) {
         localStorage.setItem("isAuth", "true");
         localStorage.setItem("userData", JSON.stringify(data));
         setUserData(data);
-        navigate("/profile"); // Перенаправляем пользователя на страницу профиля после регистрации
+        navigate("/profile");
       } else {
         console.error("Неизвестная ошибка");
       }

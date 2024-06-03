@@ -29,7 +29,7 @@ export default function Leftbar() {
         <div className="leftbar-container">
           <ul className="leftbar__list">
             <li className="leftbar__list--item">
-              <Link to="#">Фильмы</Link>
+              <Link to="/films">Фильмы</Link>
             </li>
             <li className="leftbar__list--item">
               <Link to="#">Сериалы</Link>

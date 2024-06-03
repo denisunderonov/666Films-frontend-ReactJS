@@ -5,6 +5,7 @@ import Header from "./components/header/header";
 import RegisterPage from "./components/register/register";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/login/login";
+import FilmsPage from "./components/films/films";
 
 export default function App() {
   const [isAuth, setAuth] = useState(() => {
@@ -55,6 +56,7 @@ export default function App() {
             path="/login"
             element={<Login setAuth={setAuth} setUserData={setUserData} />}
           />
+          <Route path="/films" element={<FilmsPage />} />
         </Routes>
       </Router>
     </>
