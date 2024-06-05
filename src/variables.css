@@ -1,4 +1,6 @@
 :root {
     --background: rgb(245, 245, 245);
     --header-color: #242424;
+    --blue-bootstrap: #0d6efd;
+    --bs-gray: #6c757d;
 }

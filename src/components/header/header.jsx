@@ -9,7 +9,7 @@ export default function Header({ isAuth }) {
     <header className="main-header">
       <div className="main-header__container">
         <Link to="/" className="main-header__logotype-href">
-          <p className="main-header__logo">DevilEyes</p>
+          <p className="main-header__logo">666films</p>
         </Link>
         {localStorage.getItem("token") ? <RegHeader /> : <NotRegHeader />}
       </div>

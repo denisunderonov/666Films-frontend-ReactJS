@@ -7,7 +7,7 @@
   bottom: 0;
   width: 150px;
   background-color: var(--header-color);
-  z-index: 1;
+  z-index: 10;
 }
 
 .leftbar-container {
@@ -51,14 +51,18 @@
   color: var(--header-color);
 }
 
+.item-page__information--genres {
+  text-transform: capitalize;
+}
+
 .leftbar__open-close-btn {
   transition: transform 0.5s;
   transform: rotate(180deg);
   position: absolute;
-  width: 64px;
+  width: 48px;
   height: auto;
   cursor: pointer;
-  right: -64px;
+  right: -48px;
   top: 68px;
 }
 

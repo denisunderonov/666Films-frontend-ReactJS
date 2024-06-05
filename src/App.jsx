@@ -5,7 +5,8 @@ import Header from "./components/header/header";
 import RegisterPage from "./components/register/register";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/login/login";
-import FilmsPage from "./components/films/films";
+import Page from "./components/page/page";
+import ItemPage from "./components/itemPage/itemPage";
 
 export default function App() {
   const [isAuth, setAuth] = useState(() => {
@@ -56,7 +57,12 @@ export default function App() {
             path="/login"
             element={<Login setAuth={setAuth} setUserData={setUserData} />}
           />
-          <Route path="/films" element={<FilmsPage />} />
+          <Route path="/films" element={<Page route={'films'}/>} />
+          <Route path="/serials" element={<Page route={'serials'}/>} />
+          <Route path="/anime" element={<Page route={'anime'}/>} />
+          <Route path="/films/:id" element={<ItemPage route={'films'}/>} />
+          <Route path="/serials/:id" element={<ItemPage route={'serials'}/>} />
+          <Route path="/anime/:id" element={<ItemPage route={'anime'}/>} />
         </Routes>
       </Router>
     </>
