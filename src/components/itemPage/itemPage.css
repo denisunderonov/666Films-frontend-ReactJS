@@ -19,6 +19,10 @@
     border-radius: 10px;
 }
 
+.item-page__information--genres {
+    text-align: right;
+}
+
 .item-page__item-container {
     display: flex;
     gap: 30px;
@@ -73,6 +77,14 @@
     border-radius: 5px;
     margin-bottom: 5px;
     background-color: var(--bs-gray) !important;
+}
+
+.item-page__buttons-container {
+    width: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
 }
 
 @media (max-width: 800px) {

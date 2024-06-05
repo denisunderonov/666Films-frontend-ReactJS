@@ -41,16 +41,32 @@ export default function ItemPage({ route }) {
                 </p>
                 <p className="item-page__information--year">
                   <span>Год</span>
-                  <span className="bootstrap-blocks">{itemData ? itemData.result[0].year : ""}</span>
+                  <span className="bootstrap-blocks">
+                    {itemData ? itemData.result[0].year : ""}
+                  </span>
                 </p>
                 <p className="item-page__information--genres">
                   <span>Жанры</span>
-                  <span className="bootstrap-blocks">{itemData ? itemData.result[0].genres : ""}</span>
+                  <span className="bootstrap-blocks">
+                    {itemData ? itemData.result[0].genres : ""}
+                  </span>
                 </p>
                 <p className="item-page__information--rating">
                   <span>Рейтинг</span>
-                  <span className="bootstrap-blocks">{itemData ? itemData.result[0].rating : ""}</span>
+                  <span className="bootstrap-blocks">
+                    {itemData ? itemData.result[0].rating : ""}
+                  </span>
                 </p>
+                {itemData.result[0].seasons ? (
+                  <p className="item-page__information--rating">
+                    <span>Количество сезонов</span>
+                    <span className="bootstrap-blocks">
+                      {itemData.result[0].seasons}
+                    </span>
+                  </p>
+                ) : (
+                  ""
+                )}
                 <p className="item-page__information--duration">
                   <span>Длительность</span>
                   <span className="bootstrap-blocks">
@@ -58,6 +74,10 @@ export default function ItemPage({ route }) {
                   </span>
                 </p>
               </div>
+            </div>
+            <div className="item-page__buttons-container">
+              <button className="btn btn-light">Не просмотрено</button>
+              <button className="btn btn-light">В избранное</button>
             </div>
             <p className="item-page__description-main-text">Описание</p>
             <p className="item-page__description">

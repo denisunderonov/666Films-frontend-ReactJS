@@ -32,10 +32,10 @@ export default function Leftbar() {
               <Link to="/films">Фильмы</Link>
             </li>
             <li className="leftbar__list--item">
-              <Link to="#">Сериалы</Link>
+              <Link to="/serials">Сериалы</Link>
             </li>
             <li className="leftbar__list--item">
-              <Link to="#">Аниме</Link>
+              <Link to="/anime">Аниме</Link>
             </li>
           </ul>
         </div>
