@@ -72,7 +72,7 @@
 }
 
 .page__item--title {
-  font-family: "RobotoMedium";
+  /* font-family: "RobotoMedium"; */
   border-radius: 0 0 5px 5px;
   margin: 0;
   background-color: #0d6dfdd5;
@@ -104,9 +104,19 @@
   position: absolute;
   top: 0;
   font-size: medium;
-  font-family: 'RobotoMedium';
   right: 0;
   z-index: 9;
   padding: 5px;
   transition: font-size 0.2s ease-in-out;
+}
+
+.page__main-text {
+  width: fit-content;
+  padding: 0;
+  /* font-family: 'RobotoMedium'; */
+  margin: 0 auto;
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 15px;
+  text-wrap: balance;
 }

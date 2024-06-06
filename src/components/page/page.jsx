@@ -6,6 +6,7 @@ import Spinner from "../spinner/spinner";
 
 export default function Page({ route }) {
   const [films, setFilms] = useState([]);
+  const [titleName, setTitleName] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,6 +24,14 @@ export default function Page({ route }) {
     }
 
     fetchMovieData();
+
+    if (route === 'films') {
+      setTitleName('фильмов');
+    } else if (route === 'serials') {
+      setTitleName('сериалов');
+    } else if (route === 'anime') {
+      setTitleName('аниме');
+    }
   }, [route]);
 
   useEffect(() => {
@@ -69,6 +78,7 @@ export default function Page({ route }) {
       <Leftbar />
       <div className="page">
         <div className="page-container">
+          <p className="page__main-text">Библиотека {titleName}</p>
           <ul className="page__items-list">
             {films.length > 0 ? (
               films.map((film) => (

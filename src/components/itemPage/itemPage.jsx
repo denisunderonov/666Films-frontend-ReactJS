@@ -1,12 +1,14 @@
 import "./itemPage.css";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Spinner from "../spinner/spinner";
 import Leftbar from "../leftbar/leftbar";
 
 export default function ItemPage({ route }) {
   const { id } = useParams();
   const [itemData, setItemData] = useState(null);
+  const [isLike, setLike] = useState(false)
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchItem = async () => {
@@ -22,6 +24,23 @@ export default function ItemPage({ route }) {
 
     fetchItem();
   }, [id, route]);
+
+  function handleWatch(e) {
+    if (!localStorage.getItem('token')) {
+      navigate('/login');
+    }
+    console.log(e)
+    if(isLike === false) {
+      e.target.textContent = 'Просмотрено';
+      e.target.style.backgroundColor = 'var(--bs-green)';
+      setLike(true);
+    } else if (isLike === true) {
+      e.target.textContent = 'Не просмотрено';
+      e.target.style.backgroundColor = 'var(--bs-gray)';
+      setLike(false);
+    }
+  }
+
 
   return itemData ? (
     <>
@@ -76,8 +95,7 @@ export default function ItemPage({ route }) {
               </div>
             </div>
             <div className="item-page__buttons-container">
-              <button className="btn btn-light">Не просмотрено</button>
-              <button className="btn btn-light">В избранное</button>
+              <button className="prsm-btn" onClick={(e) => handleWatch(e)}><span>Не просмотрено</span></button>
             </div>
             <p className="item-page__description-main-text">Описание</p>
             <p className="item-page__description">

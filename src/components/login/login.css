@@ -37,14 +37,12 @@
 }
 
 #login-form input::placeholder {
-    font-family: 'RobotoMedium';
     text-align: center;
 }
 
 .login-form__login-button {
     padding: 10px;
     width: 100%;
-    font-family: 'RobotoMedium';
     text-transform:capitalize;
 }
 

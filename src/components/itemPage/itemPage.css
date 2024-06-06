@@ -5,7 +5,7 @@
 
 .item-page-container {
     margin: 0 auto;
-    padding-top: 85px;
+    padding-top: 125px;
     max-width: 1440px;
     padding-left: 15px;
     padding-right: 15px;
@@ -38,8 +38,7 @@
 }
 
 .item-page__description-main-text {
-    margin-bottom: 50px;
-    font-family: 'RobotoMedium';
+    margin-bottom: 30px;
     font-size: 35px;
 }
 
@@ -59,14 +58,12 @@
 .item-page__information p span:first-child {
     font-size: 20px;
     display: block;
-    font-family: 'RobotoMedium';
 }
 
 .item-page__information--title {
     font-weight: bold;
     font-size: 40px !important;
     border: none !important;
-    font-family: 'RobotoMedium';
 }
 
 .bootstrap-blocks {
@@ -79,12 +76,29 @@
     background-color: var(--bs-gray) !important;
 }
 
+.item-page__image {
+    max-width: 250px;
+}
+
 .item-page__buttons-container {
-    width: fit-content;
     display: flex;
     flex-wrap: wrap;
+    max-width: 250px;
     gap: 20px;
+    padding: 0;
+    margin: 0;
     margin-bottom: 30px;
+    color: #fff;
+    margin-top: -35px;
+}
+
+.prsm-btn {
+    background-color: var(--bs-gray);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 100%;
+    color: #fff;
 }
 
 @media (max-width: 800px) {

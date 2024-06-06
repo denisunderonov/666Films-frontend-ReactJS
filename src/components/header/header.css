@@ -1,51 +1,91 @@
-
 header {
-    background-color: var(--header-color);
-    position: fixed;
-    width: 100%;
-    z-index: 99;
+  background-color: var(--header-color);
+  position: fixed;
+  width: 100%;
+  z-index: 99;
 }
 
 .main-header__buttons-container {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .main-header__container {
-    max-width: 1440px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
 }
 
 .main-header__logo {
-    margin: 0;
-    width: fit-content;
-    font-family: 'LogoFont';
-    font-weight: 700;
-    color: #ffffff;
+  margin: 0;
+  width: fit-content;
+  font-family: "LogoFont";
+  font-weight: 700;
+  color: #ffffff;
 }
 
-.main-header__register-button, .main-header__log-button {
-    text-transform: uppercase;
-    height: fit-content;
-    font-family: 'RobotoMedium';
+.main-header__register-button,
+.main-header__log-button {
+  text-transform: uppercase;
+  height: fit-content;
+  font-family: "RobotoMedium";
 }
 
 .main-header__acc-image {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.main-header__acc-image:hover {
+    transform: scale(1.1);
 }
 
 .main-header__auth-container {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .main-header__logotype-href {
-    text-decoration: none;
+  text-decoration: none;
+}
+
+.main-header__profile-selection {
+  position: absolute;
+  background-color: var(--header-color);
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  top: 62px;
+  right: 0;
+  overflow: hidden;
+  height: 0px;
+  transition: height 0.5s ease;
+}
+
+.main-header__profile-selection a {
+  padding: 10px;
+  text-align: center;
+  display: block;
+  width: 100%;
+  color: #fff;
+  font-size: 13px;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.main-header__profile-selection a:hover {
+  background-color: var(--background);
+  color: var(--header-color);
+}
+
+.main-header__profile-selection a:active {
+  background-color: var(--background);
+  color: var(--header-color);
 }
