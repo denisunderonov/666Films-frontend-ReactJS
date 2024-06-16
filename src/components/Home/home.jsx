@@ -2,6 +2,7 @@ import SimpleAlert from "../simplealert/simplealert";
 import "./home.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import * as URLS from '../../url.js';
 
 export default function Home() {
   const [genres, setGenres] = useState({ films: [], series: [], animes: [] });
@@ -16,7 +17,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchGenres() {
       try {
-        const response = await fetch("http://localhost:4444/genres", {
+        const response = await fetch(`${URLS.backURL}/genres`, {
           method: "GET",
         });
 
@@ -56,7 +57,7 @@ export default function Home() {
     const token = localStorage.getItem("token");
 
     try {
-      const response = await fetch("http://localhost:4444/recomendations", {
+      const response = await fetch(`${URLS.backURL}/recomendations`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

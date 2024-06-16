@@ -3,6 +3,7 @@ import "./default.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../spinner/spinner";
+import * as URLS from '../../url.js';
 
 export default function DefaultPage() {
   const [recommendations, setRecommendations] = useState({
@@ -61,7 +62,7 @@ export default function DefaultPage() {
     try {
       const token = localStorage.getItem("token");
 
-      const response = await fetch(`http://localhost:4444/getrecomends`, {
+      const response = await fetch(`${URLS.backURL}/getrecomends`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

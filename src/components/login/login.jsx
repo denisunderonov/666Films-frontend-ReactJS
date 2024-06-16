@@ -2,8 +2,9 @@ import { useState } from "react";
 import "./login.css";
 import { useNavigate } from "react-router-dom";
 import SimpleAlert from "../simplealert/simplealert";
+import * as URLS from '../../url.js';
 
-const url = "http://localhost:4444/auth/login";
+const url = `${URLS.backURL}/auth/login`;
 
 export default function Login({ setAuth, setUserData }) {
   const [message, setMessage] = useState(null);

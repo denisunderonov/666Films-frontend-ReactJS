@@ -3,6 +3,7 @@ import Leftbar from "../leftbar/leftbar";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../spinner/spinner";
+import * as URLS from '../../url.js';
 
 export default function Page({ route }) {
   const [films, setFilms] = useState([]);
@@ -12,7 +13,7 @@ export default function Page({ route }) {
   useEffect(() => {
     async function fetchMovieData() {
       try {
-        const response = await fetch(`http://localhost:4444/${route}`, {
+        const response = await fetch(`${URLS.backURL}/${route}`, {
           method: "GET",
         });
         const data = await response.json();

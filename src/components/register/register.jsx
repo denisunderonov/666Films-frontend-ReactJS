@@ -1,7 +1,8 @@
 import "./register.css";
 import { useNavigate } from "react-router-dom";
+import * as URLS from '../../url.js';
 
-const url = "http://localhost:4444/auth/register";
+const url = `${URLS.backURL}/auth/register`;
 
 export default function RegisterPage({ setAuth, setUserData }) {
   const navigate = useNavigate();

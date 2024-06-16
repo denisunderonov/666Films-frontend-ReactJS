@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Spinner from "../spinner/spinner";
 import Leftbar from "../leftbar/leftbar";
+import * as URLS from '../../url.js';
 
 export default function ItemPage({ route }) {
   const { id } = useParams();
@@ -13,7 +14,7 @@ export default function ItemPage({ route }) {
   useEffect(() => {
     const fetchItem = async () => {
       try {
-        const response = await fetch(`http://localhost:4444/${route}/${id}`);
+        const response = await fetch(`${URLS.backURL}/${route}/${id}`);
         const data = await response.json();
         setItemData(data);
         console.log(data);
