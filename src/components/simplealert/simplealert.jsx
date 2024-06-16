@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
 import Alert from "@mui/material/Alert";
-import "./simplealert.css";
 
 export default function SimpleAlert({ text , alertStatus}) {
   const [visible, setVisible] = useState(true);

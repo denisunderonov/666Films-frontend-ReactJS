@@ -51,6 +51,9 @@ function RegHeader() {
         <li className="main-header__profile-selection--selector">
           <Link to="#">Просмотрено</Link>
         </li>
+        <li className="main-header__profile-selection--selector">
+          <Link to="/recomends">Настройки рекомендаций</Link>
+        </li>
       </ul>
       <img
         onClick={handleClick}

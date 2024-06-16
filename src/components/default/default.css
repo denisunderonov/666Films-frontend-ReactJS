@@ -1,0 +1,130 @@
+.default {
+    width: 100%;
+}
+
+.default-container {
+    width: 100%;
+    padding-top: 100px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+
+h2 {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+
+.page__items-list {
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 30px;
+    list-style-type: none;
+  }
+  
+  .page__items-list--item {
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 17px 4px rgba(204, 204, 204, 0.5);
+    -moz-box-shadow: 0px 0px 17px 4px rgba(204, 204, 204, 0.5);
+    box-shadow: 0px 0px 17px 4px rgba(204, 204, 204, 0.5);
+    margin: 0 auto;
+    padding: 0;
+    height: 300px;
+    width: 200px;
+    border-radius: 5px;
+    position: relative;
+    background-color: #fff;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .page__items-list--item:hover {
+    box-shadow: 0px 0px 18px 5px rgba(113, 113, 113, 0.5);
+    -webkit-box-shadow: 0px 0px 18px 5px rgba(113, 113, 113, 0.5);
+    -moz-box-shadow: 0px 0px 18px 5px rgba(113, 113, 113, 0.5);
+  }
+  
+  @keyframes getTitle {
+    from {
+      bottom: -60px;
+    }
+    to {
+      bottom: 0;
+    }
+  }
+  
+  @keyframes hideTitle {
+    from {
+      bottom: 0;
+    }
+    to {
+      bottom: -60;
+    }
+  }
+  
+  .animated {
+    animation: getTitle 0.3s ease-in-out forwards alternate;
+  }
+  
+  .hide {
+    animation: hideTitle 0.3s ease-in-out forwards alternate;
+  }
+  
+  .page__item--title {
+    /* font-family: "RobotoMedium"; */
+    border-radius: 0 0 5px 5px;
+    margin: 0;
+    background-color: #0d6dfdd5;
+    color: #fff;
+    width: 100%;
+    height: 20%;
+    text-wrap: balance;
+    padding: 5px;
+    position: absolute;
+    text-align: center;
+    bottom: -60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .page__item--title span {
+    justify-self: center;
+    align-self: center;
+    display: block;
+    width: fit-content;
+  }
+  
+  .page__item--rating {
+    background-color: var(--blue-bootstrap);
+    border-radius: 0 0 0 5px;
+    color: #fff;
+    width: fit-content;
+    position: absolute;
+    top: 0;
+    font-size: medium;
+    right: 0;
+    z-index: 9;
+    padding: 5px;
+    transition: font-size 0.2s ease-in-out;
+  }
+  
+  .page__main-text {
+    width: fit-content;
+    padding: 0;
+    /* font-family: 'RobotoMedium'; */
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 15px;
+    text-wrap: balance;
+  }
+
+  h3 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }

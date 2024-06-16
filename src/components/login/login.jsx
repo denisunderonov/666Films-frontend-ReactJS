@@ -8,7 +8,6 @@ const url = "http://localhost:4444/auth/login";
 export default function Login({ setAuth, setUserData }) {
   const [message, setMessage] = useState(null);
   const [key, setKey] = useState(0); 
-
   const navigate = useNavigate();
 
   async function handleSubmit(event) {

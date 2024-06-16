@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/login/login";
 import Page from "./components/page/page";
 import ItemPage from "./components/itemPage/itemPage";
+import DefaultPage from "./components/default/default";
+import UnauthorizePage from "./components/unauthorize/unauthorize";
 
 export default function App() {
   const [isAuth, setAuth] = useState(() => {
@@ -32,7 +34,9 @@ export default function App() {
       <Router>
         <Header setAuth={setAuth} isAuth={isAuth} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<DefaultPage />} />
+          <Route path="/unauthorized" element={<UnauthorizePage />} />
+          <Route path="/recomends" element={<Home />} />
           <Route
             path="/register"
             element={
@@ -43,6 +47,7 @@ export default function App() {
               />
             }
           />
+
           <Route
             path="/profile"
             element={

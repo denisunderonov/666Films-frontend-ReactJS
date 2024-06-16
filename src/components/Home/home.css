@@ -1,3 +1,69 @@
 body {
-    background-color: var(--background);
+  background-color: var(--background);
+}
+
+.home-container {
+  width: 100%;
+  padding-top: 100px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+}
+
+.home__main-text {
+  width: fit-content;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+.rec-list {
+  width: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 10px;
+  padding: 0;
+}
+
+.genres-section {
+  background-color: #fff;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 15px;
+}
+
+.rec-item {
+  list-style-type: none;
+  width: fit-content;
+  padding: 0;
+  margin: 0;
+  background-color: var(--blue-bootstrap);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.rec-item span {
+  margin-left: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #fff;
+}
+
+.genres-section h3:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+form {
+    width: 100%;    
+}
+
+.submit-button {
+    font-size: 25px;
+    text-transform: uppercase;
+    width: fit-content;
+    margin: 0 auto;
+    font-weight: bold;
 }
