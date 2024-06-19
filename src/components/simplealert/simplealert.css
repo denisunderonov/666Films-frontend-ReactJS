@@ -1,0 +1,12 @@
+.alert {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  max-width: fit-content;
+}
+
+
+
+.alert.fade-out {
+  display: none;
+}

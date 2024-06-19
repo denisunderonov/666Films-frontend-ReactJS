@@ -49,7 +49,7 @@ function RegHeader() {
           <Link to="/profile">Профиль</Link>
         </li>
         <li className="main-header__profile-selection--selector">
-          <Link to="#">Просмотрено</Link>
+          <Link to="/watch">Просмотрено</Link>
         </li>
         <li className="main-header__profile-selection--selector">
           <Link to="/recomends">Настройки рекомендаций</Link>

@@ -9,6 +9,7 @@ import Page from "./components/page/page";
 import ItemPage from "./components/itemPage/itemPage";
 import DefaultPage from "./components/default/default";
 import UnauthorizePage from "./components/unauthorize/unauthorize";
+import WatchedPage from "./components/watched/watched";
 
 export default function App() {
   const [isAuth, setAuth] = useState(() => {
@@ -68,6 +69,7 @@ export default function App() {
           <Route path="/films/:id" element={<ItemPage route={'films'}/>} />
           <Route path="/serials/:id" element={<ItemPage route={'serials'}/>} />
           <Route path="/anime/:id" element={<ItemPage route={'anime'}/>} />
+          <Route path="/watch" element={<WatchedPage />} />
         </Routes>
       </Router>
     </>

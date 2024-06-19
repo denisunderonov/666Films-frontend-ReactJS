@@ -83,8 +83,8 @@ export default function DefaultPage() {
     }
   };
 
-  function handleClick(id) {
-    navigate(`/films/${id}`);
+  function handleClick(id, type) {
+    navigate(`/${type}/${id}`);
   }
 
   return (
@@ -100,7 +100,7 @@ export default function DefaultPage() {
             ) : recommendations.movies.length > 0 ? (
               recommendations.movies.map((movie) => (
                 <li
-                  onClick={() => handleClick(movie.id)}
+                  onClick={() => handleClick(movie.id, movie.type)}
                   key={movie.id}
                   className="page__items-list--item"
                   style={{
@@ -126,7 +126,7 @@ export default function DefaultPage() {
             ) : recommendations.series.length > 0 ? (
               recommendations.series.map((series) => (
                 <li
-                  onClick={() => handleClick(series.id)}
+                  onClick={() => handleClick(series.id, series.type)}
                   key={series.id}
                   className="page__items-list--item"
                   style={{
@@ -152,7 +152,7 @@ export default function DefaultPage() {
             ) : recommendations.animes.length > 0 ? (
               recommendations.animes.map((anime) => (
                 <li
-                  onClick={() => handleClick(anime.id)}
+                  onClick={() => handleClick(anime.id, anime.type)}
                   key={anime.id}
                   className="page__items-list--item"
                   style={{

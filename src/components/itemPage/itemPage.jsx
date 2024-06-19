@@ -8,7 +8,7 @@ import * as URLS from '../../url.js';
 export default function ItemPage({ route }) {
   const { id } = useParams();
   const [itemData, setItemData] = useState(null);
-  const [isLike, setLike] = useState(false)
+  const [isWatched, setIsWatched] = useState(false); // Изначально считаем, что не просмотрено
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,35 +17,64 @@ export default function ItemPage({ route }) {
         const response = await fetch(`${URLS.backURL}/${route}/${id}`);
         const data = await response.json();
         setItemData(data);
-        console.log(data);
+        checkWatched();
       } catch (error) {
         console.error("Ошибка в получении данных", error);
+      }
+    };
+
+    const checkWatched = async () => {
+      try {
+        const response = await fetch(`${URLS.backURL}/watched/check/${route}/${id}`, {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+        const data = await response.json();
+        setIsWatched(data.isWatched);
+      } catch (error) {
+        console.error("Ошибка в проверке состояния просмотра", error);
       }
     };
 
     fetchItem();
   }, [id, route]);
 
-  function handleWatch(e) {
+  const handleWatch = async () => {
     if (!localStorage.getItem('token')) {
       navigate('/login');
+      return;
     }
-    console.log(e)
-    if(isLike === false) {
-      e.target.textContent = 'Просмотрено';
-      e.target.style.backgroundColor = 'var(--bs-green)';
-      setLike(true);
-    } else if (isLike === true) {
-      e.target.textContent = 'Не просмотрено';
-      e.target.style.backgroundColor = 'var(--bs-gray)';
-      setLike(false);
-    }
-  }
 
+    try {
+      const method = isWatched ? 'remove' : 'add';
+      const response = await fetch(`${URLS.backURL}/watched/${method}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        },
+        body: JSON.stringify({
+          series_id: route === 'serials' ? id : null,
+          movie_id: route === 'films' ? id : null,
+          anime_id: route === 'anime' ? id : null
+        })
+      });
+
+      if (response.ok) {
+        setIsWatched(!isWatched);
+      } else {
+        console.error("Ошибка при обновлении состояния просмотра");
+      }
+    } catch (error) {
+      console.error("Ошибка при обновлении состояния просмотра", error);
+    }
+  };
 
   return itemData ? (
     <>
       <Leftbar />
+
       <div className="item-page">
         <div className="item-page-container">
           <div className="item-page__border-container">
@@ -96,7 +125,12 @@ export default function ItemPage({ route }) {
               </div>
             </div>
             <div className="item-page__buttons-container">
-              <button className="prsm-btn" onClick={(e) => handleWatch(e)}><span>Не просмотрено</span></button>
+              <button
+                className={`prsm-btn btn ${isWatched ? 'btn-success' : 'btn-danger'}`}
+                onClick={handleWatch}
+              >
+                <span>{isWatched ? 'Просмотрено' : 'Не просмотрено'}</span>
+              </button>
             </div>
             <p className="item-page__description-main-text">Описание</p>
             <p className="item-page__description">
