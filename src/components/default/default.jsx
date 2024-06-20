@@ -11,9 +11,9 @@ export default function DefaultPage() {
     series: [],
     animes: [],
   });
-  const [loading, setLoading] = useState(true); // Состояние загрузки
+  const [loading, setLoading] = useState(true); 
 
-  const navigate = useNavigate(); // Используем хук useNavigate для навигации
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
@@ -21,8 +21,7 @@ export default function DefaultPage() {
     } else {
       fetchRecommendations();
     }
-  }, [navigate]); // Добавляем navigate в зависимости, чтобы избежать предупреждения зависимости
-
+  }, [navigate]); 
   useEffect(() => {
     function handleMouseOver(event) {
       const filmTitle = event.currentTarget.querySelector(".page__item--title");

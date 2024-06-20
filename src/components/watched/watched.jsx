@@ -20,6 +20,7 @@ export default function WatchedPage() {
         const data = await response.json();
         setFilms(data.result);
         setLoading(false);
+        console.log(data)
       } catch (error) {
         console.error("Ошибка в получении просмотренных элементов", error);
       }
@@ -45,7 +46,7 @@ export default function WatchedPage() {
                   key={film.id}
                   className="watch__items-list--item"
                   style={{
-                    backgroundImage: `url(${film.url})`,
+                    backgroundImage: `url(${film.url ? film.url : ''})`,
                     backgroundPosition: `center`,
                     backgroundSize: `cover`,
                   }}
